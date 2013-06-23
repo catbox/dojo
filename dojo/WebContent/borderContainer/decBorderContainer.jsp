@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Declarative Border Container</title>
+<link rel="stylesheet" href="/dojotoolkit/dojo-1.8.3/dijit/themes/claro/claro.css" media="screen">
+<link rel="stylesheet" href="/css/myCSS.css">
+<style type="text/css">
+	html, body {
+	    width: 100%;
+	    height: 100%;
+	    margin: 0;
+	    overflow:hidden;
+	}
+	
+	#borderContainer {
+	    width: 100%;
+	    height: 100%;
+	}
+</style>
+</head>
+<body class="claro">
+
+	<div id="borderContainer", data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', gutters:true">
+    	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'leading'" style="width: 100px;">Leading Pane</div>
+    	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'center'">Center Pane</div>
+    	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'trailing'" style="width: 100px;">Trailing Pane</div>
+	</div>
+	
+	<script data-dojo-config="async: true" src="/dojotoolkit/dojo-1.8.3/dojo/dojo.js"></script>	
+	
+	<script>	
+		require(["dojo/parser", "dijit/layout/ContentPane", "dijit/layout/BorderContainer", "dojo/domReady!"], function(parser){
+			parser.parse();	
+		});
+	</script>
+</body>
+</html>
