@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>index</title>
+<title>Content Pane</title>
 <link rel="stylesheet" href="/dojotoolkit/dojo-1.8.3/dijit/themes/claro/claro.css" media="screen">
 <link rel="stylesheet" href="/css/myCSS.css">
 </head>
@@ -24,11 +24,11 @@
 		         "dijit/form/Button", "dojox/validate/web", "dojo/domReady!"], 
 		         function(dom, domConstruct, ContentPane, ValidationTextBox, Button) {
 			
+			// Main login pane
 			var loginPane = new ContentPane({
 				id:"loginPane",	           
-	            //splitter:false, 
 	            style:"width:750px; border-style:solid;}",
-	            content:"<div>hello world!</div>"
+	            content:"<p>Enter your login info</p>"
 			}, "cp");
 			
 			// Email
@@ -63,18 +63,14 @@
             	invalidMessage:"Incorrect password format!",
             	style:"margin:0"});
 		
-			// Add the input fields to the content pane
+			// Add the input fields to the login pane
     		loginPane.addChild(email);
 			loginPane.addChild(password);			
 			
-			
-
-			
-			var e  = dom.byId("widget_email");
-			//alert("email: " + email);
-			
-			var someNewNode = domConstruct.toDom("<br><br>");
-			domConstruct.place(someNewNode, e, "after");
+			// Add a break after the email node
+			var emailNode = dom.byId("widget_email");		
+			var breakNode = domConstruct.toDom("<br><br>");
+			domConstruct.place(breakNode, emailNode, "after");
 			
 			loginPane.startup();
 			
