@@ -14,8 +14,7 @@
 		display:inline-block;
 		width:100%;
 		height:80px;
-		/*background-color:#D6EBFF;*/
-		background-color:red;	
+		background-color:#D6EBFF;
 	}
 	
 	#logo {
