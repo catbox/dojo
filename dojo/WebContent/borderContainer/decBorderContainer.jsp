@@ -14,7 +14,7 @@
 	}
 	
 	#borderContainer {
-	    width: 100%;
+	    width: 50%;
 	    height: 100%;
 	}
 </style>
