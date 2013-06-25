@@ -47,7 +47,7 @@
 				id:"cp1",	           
 	            splitter:true, 
 	            region:"top",
-	            style:"width:100%; height:10%; overflow:hidden"
+	            style:"width:100%; height:10%; overflow:hidden",
 	           	content:"Top Pane"
 			});
 			bc.addChild(cp1);
