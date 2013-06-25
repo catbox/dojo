@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Programmatic Border Container 3</title>
+<title>Programmatic Border Container</title>
 <link rel="stylesheet" href="/dojotoolkit/dojo-1.8.3/dijit/themes/claro/claro.css" media="screen">
 <link rel="stylesheet" href="/css/myCSS.css">
 <style type="text/css">
@@ -27,13 +27,15 @@
 	#block {
 		position:absolute;
 		top:25px;
-		left:700px;
+		left:710px;
 		width:100%;	
 	}
+	
 	
 	#borderContainer {
 		display:inline-block;
 		min-width:100%;
+		resize:none
 	}
 		
 	.dj_gecko .claro .dijitTextBox .dijitInputInner, .dj_webkit .claro .dijitTextBox .dijitInputInner, .dj_ie .claro .dijitTextBox .dijitInputInner {
@@ -85,6 +87,7 @@
 		overflow:hidden;
 	}
 	
+	
 </style>
 </head>
 <body class="claro">
@@ -92,18 +95,20 @@
     	<div id="cp1"> 
     		<form id="myform">
 				<div id="logo">phantom</div>
-				<div id="block">	
-					<input id="fullname"/>
-					<input id="email"/>
+				<div id="block">
+					<input id="email" size="10"/>	
+					<input id="password"/>					
 				    <button id="login"></button>
 				</div>
 			</form>
     	</div>    	
     	<div id="cp2"></div>
-    	<div id="cp3">
-    		<div id="email2"></div>
-    		<br><br>
-			<div id="password"></div>
+    	<div id="cp3"> 		
+    		<div id="firstname"></div>
+    		<div id="lastname"></div>
+			<div id="signup-email"></div>
+			<div id="signup-email-match"></div>
+			<div id="signup-password"></div>	
     	</div> 	
     	<div id="cp4"></div>
 	</div>
@@ -121,8 +126,8 @@
 	<script src="/dojotoolkit/dojo-1.8.3/dojo/dojo.js"></script>
 	
 	<script>	
-		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "modules/login", "modules/loginPane", "modules/signup", "dojo/domReady!"], 
-		         function(BorderContainer, ContentPane, login, loginPane, signup) {	
+		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "modules/login", "modules/signup", "dojo/domReady!"], 
+		         function(BorderContainer, ContentPane, login, signup) {	
 					
 			var bc = new BorderContainer({
 				id:"borderContainer",
@@ -136,7 +141,7 @@
 	            splitter:false, 
 	            region:"top",
 	            style:"height:80px; padding:0; margin:0",
-	           	content:loginPane.getLoginPane()
+	           	content:login.getLoginPane()
 			});
 			bc.addChild(cp1);
 			
@@ -153,10 +158,8 @@
 	        	id:"cp3",	            
 	            splitter:false, 
 	            region:"center", 
-	            //style:"width:850px; overflow:hidden",
-	            style:"background-color:#A6EBFF; border:solid; padding:0px; margin:0px",
-	            content:login.getLoginPane()
-	            //content:"<p>what the fuck?</p>" //login.getLoginPane()
+	            style:"background-color:#EDF0F5; padding:0px; margin:0px; overflow:hidden",
+	            content:signup.getSignupPane()
 	        });
 		 	bc.addChild(cp3);	 	
 		 	
@@ -171,7 +174,6 @@
 		 	
 			bc.startup();
 			
-			//signup.getSignupPane();
 		});
 	</script>
 	
