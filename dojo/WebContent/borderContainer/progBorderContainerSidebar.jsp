@@ -31,7 +31,7 @@
 	        locale: 'en'	        
 	    };
 	</script>
-	<script src="/dojotoolkit/dojo-1.9.0/dojo/dojo.js"></script>
+	<script src="/dojotoolkit/dojo-1.8.3/dojo/dojo.js"></script>
 	
 	<script>	
 		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/domReady!"], function(BorderContainer, ContentPane) {
