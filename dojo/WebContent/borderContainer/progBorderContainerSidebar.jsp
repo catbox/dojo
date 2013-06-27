@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Sidebar Border Container</title>
+<title>Programmatic Sidebar Border Container</title>
 <link rel="stylesheet" href="/dojotoolkit/dojo-1.8.3/dijit/themes/claro/claro.css" media="screen">
 <link rel="stylesheet" href="/css/myCSS.css">
 <style type="text/css">
