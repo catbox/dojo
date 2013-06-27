@@ -47,7 +47,7 @@
 				id:"cp1",	           
 	            splitter:true, 
 	            region:"top",
-	            style:"width:80%; overflow:hidden;",
+	            style:"width:80%; height:10%; overflow:hidden;",
 	           	content:"Top Pane"
 			});
 			bc.addChild(cp1);
@@ -83,7 +83,7 @@
 	        	id:"cp5",	            
 	            splitter:true, 
 	            region:"bottom", 
-	            style:"width:500px; overflow:hidden;",
+	            style:"width:80%; height:5%; overflow:hidden;",
 	            content:"Bottom Pane"
 	        });
 		 	bc.addChild(cp5);
