@@ -16,13 +16,8 @@
 </style>
 </head>
 <body class="claro">
-	<div id="borderContainer">
-    	<div id="cp1"></div>
-    	<div id="cp2"></div>
-    	<div id="cp3"></div>
-    	<div id="cp4"></div>
-    	<div id="cp5"></div>
-	</div>	
+
+	<div id="borderContainer"></div>
 	
 	<script>
 	    dojoConfig = {
