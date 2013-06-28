@@ -6,7 +6,8 @@ define(["dojo/dom", "dojo/dom-construct", "dijit/layout/ContentPane", "dijit/for
     	getSignupPane: function() {
     		
         	var signupPane = new ContentPane({
-				id:"signupPane"			
+				id:"signupPane",
+				style: "margin:0px; padding:0px; border:solid"
 			}, "cp3");
         	
         	var signUpMsgPane = new ContentPane({
