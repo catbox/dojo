@@ -14,17 +14,76 @@
 	    overflow:hidden;
 	}
 	
-	#lg {
-		float:right;
+	.dijitContentPane  {
+		display:inline-block;
+		overflow:hidden;		
+	}
+	
+	table, tr, td { 
+       /*border-style:solid;
+	   border-width:1px;*/
+       padding:0px;
+       margin:0px;
+       width:100%;
+    }
+    
+    .dj_gecko .claro .dijitTextBox .dijitInputInner, .dj_webkit .claro .dijitTextBox .dijitInputInner, .dj_ie .claro .dijitTextBox .dijitInputInner {
+	    padding: 3px;
+	    background-color:white !important;
+	}
+	
+	.dj_ie .claro .dijitTextBox .dijitInputInner {
+	    padding: 3px;
+	    background-color:white !important;
+	}
+	
+	.dijitPlaceHolder {
+	    font-style: normal;
+	    left: 5px;
+		color: #B8B8B8;
+	    position: absolute;
+	    top: 3px;
+	}
+	
+	.dj_ie .dijitPlaceHolder {
+	    font-style: normal;
+	    left: 5px;
+		color: #B8B8B8;
+	    position: absolute;
+	    top: 2px;
+	}
+	
+	.claro .dijitValidationTextBoxError .dijitValidationContainer {
+		background-color: #d46464;
+	  	background-image: url("../images/error.png");
+		background-position: top center;
+		border: solid #d46464 0;
+		width: 9px;
+		height: 27px;
+	}
+	
+	.dj_ie .claro .dijitValidationTextBoxError .dijitValidationContainer {
+		background-color: #d46464;
+	  	background-image: url("../images/error.png");
+	  	background-position: top center;
+	  	border: solid #d46464 0;
+	  	width: 9px;
+	  	height: 26px;
+	}
+	
+	.dijitContentPane  {
+		display:block;
+		overflow:hidden;
 	}
 </style>
 </head>
 <body class="claro">
+ 
 
+	 
 	<div id="borderContainer">	
     	<div id="cp1"> 
     		<form id="myform">
-				<div id="logo">pkw</div>
 				<div id="lg">
 					
 				</div>
@@ -41,7 +100,7 @@
     	<div id="cp4"></div>
 	</div>
 	
-	<!--  
+	<!-- 
 	<div id="borderContainer">	
     	<div id="cp1"> 
     		<form id="myform">
@@ -77,27 +136,28 @@
 	<script src="/dojotoolkit/dojo-1.8.3/dojo/dojo.js"></script>
 	
 	<script>	
-		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane",  "modules/login", "dojo/domReady!"], function(BorderContainer, ContentPane, login) {
+		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane",  "modules/logopane", "modules/loginpane", "modules/login", "modules/signup", "dojo/domReady!"], function(BorderContainer, ContentPane, logopane, loginpane, login, signup) {
 			
 			var bc = new BorderContainer({
 				id:"borderContainer",
 				design:"headline",
 				gutters:true,
-				style:"width:100%; height:100%; overflow:hidden"
+				style:"width:100%; height:100%; overflow:hidden;"
 			}, "borderContainer");
 					
 			var cp1 = new ContentPane({
 				id:"cp1",	           
 	            splitter:false, 
 	            region:"top",
-	            style:"width:100%; height:10%; overflow:hidden",
-	            content:login.getLoginPane()
+	            style:"width:100%; height:100px; padding:0px; margin:0px; overflow:hidden;",
+	            /*content:login.getLoginPane()*/
+	            content:'<table><tr"><td><div id=\"logopane\"></div><td></td><td><div id=\"loginpane\" style=\"margin-left:200px; float:right;\"></div></td></tr></table>'
 			});
 			bc.addChild(cp1);
 					
 			var cp2 = new ContentPane({
 				id:"cp2",	           
-	            splitter:true, 
+	            splitter:false, 
 	            region:"left",
 	            style:"width:10%; overflow:hidden;",	         
 	           	content:"Left Pane"
@@ -106,32 +166,44 @@
 			
 			var cp3 = new ContentPane({
 	        	id:"cp3",	           
-	            splitter:true, 
+	            splitter:false, 
 	            region:"center",
 	            style:"width:80%; overflow:hidden;",
-	            content:"Center Pane"
+	            /*content:"Center Pane"*/
+	            content:signup.getSignupPane()
 	        });
 			bc.addChild(cp3);
 			
 		 	var cp4 = new ContentPane({
 	        	id:"cp4",	            
-	            splitter:true, 
+	            splitter:false, 
 	            region:"right", 
-	            style:"width:10%; overflow:hidden",
+	            style:"width:10%; overflow:hidden;",
 	            content:"Right Pane"
 	        });
 		 	bc.addChild(cp4);
 		 	
 		 	var cp5 = new ContentPane({
 	        	id:"cp5",	            
-	            splitter:true, 
+	            splitter:false, 
 	            region:"bottom", 
-	            style:"width:100%; height:5%; overflow:hidden;",
+	            style:"width:10%; height:5%; overflow:hidden;",
 	            content:"Bottom Pane"
 	        });
 		 	bc.addChild(cp5);
 		 	
 			bc.startup();
+			
+			logopane.getLogoPane();
+			
+			loginpane.getLoginPane();
+			/*
+			var paw = new ContentPane({
+				id:"paw",	                      	         
+	           	content:"paws"
+			},"loginpane");
+			paw.startup();
+			*/
 		});
 	</script>
 	
