@@ -136,7 +136,7 @@
 	<script src="/dojotoolkit/dojo-1.8.3/dojo/dojo.js"></script>
 	
 	<script>	
-		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane",  "modules/logopane", "modules/loginpane", "modules/login", "modules/signup", "dojo/domReady!"], function(BorderContainer, ContentPane, logopane, loginpane, login, signup) {
+		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane",  "modules/logopane", "modules/loginpane", "modules/signup", "dojo/domReady!"], function(BorderContainer, ContentPane, logopane, loginpane, signup) {
 			
 			var bc = new BorderContainer({
 				id:"borderContainer",
