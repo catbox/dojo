@@ -7,7 +7,7 @@ define(["dojo/dom", "dojo/dom-construct", "dijit/layout/ContentPane", "dijit/for
     		
         	var signupPane = new ContentPane({
 				id:"signupPane",
-				style: "margin:0px; padding:0px; border:solid"
+				style:"margin:10px; padding:0px;"
 			}, "cp3");
         	
         	var signUpMsgPane = new ContentPane({
@@ -82,11 +82,7 @@ define(["dojo/dom", "dojo/dom-construct", "dijit/layout/ContentPane", "dijit/for
     		var signupEmailNode  = dom.byId("widget_lastname");
     		var breakNode = domConstruct.toDom("<br><br>");
 			domConstruct.place(breakNode, signupEmailNode, "after");
-			
-			//var somePaneBrk = dom.byId("somePane");
-			//var someNewNode2 = domConstruct.toDom("<br>");
-			//domConstruct.place(someNewNode2, somePaneBrk, "after");
-			
+						
         	return signupPane;
         	
         }
