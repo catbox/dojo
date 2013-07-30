@@ -4,17 +4,14 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
 
     return {
     	getLoginPane: function() {
-
-    		// Login Pane
-    		var loginPane = new ContentPane({
-				id:"loginPane",
-				style:"width:430px; margin-left:300px; padding:0px;"
-			},"loginpane");
     		
-    		// The form
-			var myForm = new Form({method: "post", action: "../form/formResult.jsp"}, "myform");
-			myForm.startup();
-			myForm.on("submit", function() {
+    		 // The form
+			var loginForm = new Form({
+				id:"loginModule-loginForm",
+				method:"post", 
+				action:"../form/formResult.jsp"}, "loginForm");
+			
+			loginForm.on("submit", function() {			
 				if(this.validate()) {
 					return true;
 				}
@@ -22,10 +19,22 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
 					return false;
 				}			
 			});
-			
-			// Email
+  		
+    		// Login Pane
+    		var loginPane = new ContentPane({
+				id:"loginModule-loginPane",
+				region:"top"
+			},"cp1");
+    		
+    		// Login Field
+    		var loginFields = new ContentPane({
+				id:"loginModule-loginFields",	           
+	            style:"width:430px; margin:0px; padding:5px; border-style:solid; border-width:1px; border-color:#AAAAAA; float:right;"
+			});
+    		
+			// Email Field
 			var email = new ValidationTextBox({
-				id:"email",
+				id:"loginModule-emailField",
 				name:"email",
 				type:"text", 
 				required:true,
@@ -38,11 +47,11 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
 	        	invalidMessage:"Incorrect email format",
 	        	style:"width:175px; margin-right:5px; padding:0px",
 	        	tooltipPosition:['below']});
-		    loginPane.addChild(email);
+			loginFields.addChild(email);
 		    
-		    // Password
+		    // Password Field
 			var password = new ValidationTextBox({
-				id:"password",
+				id:"loginModule-passwordField",
 				name:"password",
 				type:"password", 
 				required:true,
@@ -52,21 +61,22 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
 	        	//regExp:"[a-z0-9._%+-]",
 	        	placeHolder:"Password",
 	        	promptMessage:"Password",
-	        	missingMessage:"Password is required! Really :)",
-	        	invalidMessage:"Incorrect password format!",
+	        	missingMessage:"Password is required",
+	        	invalidMessage:"Incorrect password format",
 	        	style:"width:175px; margin-right:5px; padding:0px",
 	        	tooltipPosition:['below']});
-		    loginPane.addChild(password);
+			loginFields.addChild(password);
 		    
 	        // Submit Button
 	        var mySubmit = new Button({
-	        	id:"login",
+	        	id:"loginModule-loginButton",
 	            label:"Login",
 	            type:"submit"
 	        });
-	        loginPane.addChild(mySubmit);
-	        	        
-	        return myForm; 
+	        loginFields.addChild(mySubmit);
+	        
+	        // Add the login fields to the login pane
+	        loginPane.addChild(loginFields);
         }
     };
 });
