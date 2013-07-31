@@ -16,7 +16,7 @@
 	
 	table, tr, td { 
        border-style:solid;
-	   border-width:1px;*
+	   border-width:1px;
        padding:0px;
        margin:0px;
        width:100%;
@@ -46,9 +46,9 @@
 			
 			var mainNode = dom.byId("main");
 			  
-			if(mainNode!=null) {				  
-		    	var formNode = domConstruct.toDom("<table><tr><td style='width:20%;'><h1 id='logopane'>Phantom</h1></td><td style='width:80%;'><form id='loginForm' style='float:right;'><div id='cp1'></div></form></td></tr></table>");
-				domConstruct.place(formNode, mainNode);
+			if(mainNode!=null) {				  			
+		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:750px;'><h1 id='logopane'>Phantom</h1></td><td style='width:50%;'><form id='loginForm'><div id='cp1'></div></form></td></tr></table>");	    	
+		    	domConstruct.place(formNode, mainNode);
 				loginpane.getLoginPane();
 			}	
 			
