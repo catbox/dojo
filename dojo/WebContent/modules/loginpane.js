@@ -5,7 +5,7 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
     return {
     	getLoginPane: function() {
     		
-    		 // The form
+    		// The form
 			var loginForm = new Form({
 				id:"loginModule-loginForm",
 				method:"post", 
@@ -22,14 +22,13 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
   		
     		// Login Pane
     		var loginPane = new ContentPane({
-				id:"loginModule-loginPane",
-				region:"top"
-			},"cp1");
+				id:"loginModule-loginPane"
+			},"loginPane");
     		
     		// Login Field
     		var loginFields = new ContentPane({
 				id:"loginModule-loginFields",	           
-	            style:"width:430px; margin:0px; padding:5px; border-style:solid; border-width:1px; border-color:#AAAAAA; float:right;"
+	            style:"width:430px; max-width:430px; margin:0px; padding:5px; border-style:solid; border-width:1px; border-color:#AAAAAA; float:right;"
 			});
     		
 			// Email Field
