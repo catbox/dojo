@@ -35,7 +35,7 @@
 	    background-color:white !important;
 	}
 	
-	.dijitPlaceHolder {
+	.claro .dijitPlaceHolder {
 	    font-style: normal;
 	    left: 5px;
 		color: #B8B8B8;
@@ -43,7 +43,7 @@
 	    top: 3px;
 	}
 	
-	.dj_ie .dijitPlaceHolder {
+	.dj_ie .claro .dijitPlaceHolder {
 	    font-style: normal;
 	    left: 5px;
 		color: #B8B8B8;
