@@ -47,7 +47,7 @@
 			var mainNode = dom.byId("main");
 			  
 			if(mainNode!=null) {				  			
-		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:750px;'><h1 id='logopane'>Phantom</h1></td><td style='width:50%;'><form id='loginForm'><div id='cp1'></div></form></td></tr></table>");	    	
+		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:750px;'><h1 id='logoPane' style='margin-left:10px;'>Phantom</h1></td><td style='width:50%;'><form id='loginForm'><div id='loginPane'></div></form></td></tr></table>");	    	
 		    	domConstruct.place(formNode, mainNode);
 				loginpane.getLoginPane();
 			}	
