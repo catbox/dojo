@@ -112,7 +112,8 @@
 	</script>
 	<script src="/dojotoolkit/dojo-1.8.3/dojo/dojo.js"></script>
 	
-	<script>	
+	<script>
+	   
 		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/dom", "dojo/dom-construct", "modules/logopane", "modules/loginpane", "modules/signup", "dojo/domReady!"], 
 				function(BorderContainer, ContentPane, dom, domConstruct, logopane, loginpane, signup) {
 			
@@ -127,12 +128,10 @@
 				id:"cp1",	           
 	            splitter:false, 
 	            region:"top",
-	            style:"width:100%; height:100px; padding:0px; margin:0px; overflow:hidden;"
-	            /*content:login.getLoginPane()*/
-	            //content:'<table><tr"><td><div id=\"logopane\"></div><td></td><td><div id=\"loginpane\" style=\"margin-left:200px; float:right;\"></div></td></tr></table>'
+	            style:"width:100%; height:100px; padding:0px; margin:0px; overflow:hidden;"          
 			},"pane1");
 			bc.addChild(cp1);
-					
+			
 			var cp2 = new ContentPane({
 				id:"cp2",	           
 	            splitter:false, 
@@ -141,13 +140,13 @@
 	           	content:"Left Pane"
 			},"pane2");
 			bc.addChild(cp2);
-			
+				
 			var cp3 = new ContentPane({
 	        	id:"cp3",	           
 	            splitter:false, 
 	            region:"center",
 	            style:"width:80%; overflow:hidden;",
-	            content:"Center Pane"
+	            //content:"Center Pane"
 	        },"pane3");
 			bc.addChild(cp3);
 			
@@ -159,7 +158,7 @@
 	            content:"Right Pane"
 	        },"pane4");
 		 	bc.addChild(cp4);
-		 	
+		
 		 	var cp5 = new ContentPane({
 	        	id:"cp5",	            
 	            splitter:false, 
@@ -169,17 +168,27 @@
 	        },"pane5");
 		 	bc.addChild(cp5);
 		 	
+		 	// Show the border layout
 		 	bc.startup();
-			
-		 	
+				 	
 		 	//signup.getSignupPane();
-				
-			var mainNode = dom.byId("cp1");
+			
+		 	// Create the top pane dom
+			var topNode = dom.byId("cp1");
 			  
-			if(mainNode!=null) {				  			
+			if(topNode!=null) {				  			
 		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:750px;'><h1 id='logoPane' style='margin-left:10px;'>Phantom</h1></td><td style='width:50%;'><form id='loginForm'><div id='loginPane'></div></form></td></tr></table>");	    	
-		    	domConstruct.place(formNode, mainNode);
+		    	domConstruct.place(formNode, topNode);
 				loginpane.getLoginPane();
+			}	
+			
+			// Create the center pane dom
+			var centerPane = dom.byId("cp3");
+			  
+			if(centerPane!=null) {				  			
+		    	var centerPaneNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px;'><h1>Hello World</h1><h1>Hello World</h1><h1>Hello World</h1></td><td style='width:50%; min-width:400px;'><form id='signupForm'><div id='signupPane'></div></form></td></tr></table>");	    	
+		    	domConstruct.place(centerPaneNode, centerPane);
+		    	signup.getSignupPane();
 			}	
 					
 		});
