@@ -1,30 +1,46 @@
-define(["dojo/dom", "dojo/dom-construct", "dijit/layout/ContentPane", "dijit/form/ValidationTextBox", 
+define(["dijit/form/Form", "dojo/dom", "dojo/dom-construct", "dijit/layout/ContentPane", "dijit/form/ValidationTextBox", 
          "dijit/form/Button", "dojox/validate/web"], 
-         function(dom, domConstruct, ContentPane, ValidationTextBox, Button) {
+         function(Form, dom, domConstruct, ContentPane, ValidationTextBox, Button) {
 		
     return {
     	getSignupPane: function() {
     		
+    		// The form
+			var signupForm = new Form({
+				id:"signupModule-signupForm",
+				method:"post", 
+				action:"../form/formResult.jsp"}, "signupForm");
+			
+			signupForm.on("submit", function() {			
+				if(this.validate()) {
+					return true;
+				}
+				else {
+					return false;
+				}			
+			});
+			
+			// Sign up Pane
         	var signupPane = new ContentPane({
-				id:"signupPane",
-				style:"margin:10px; padding:0px;"
-			}, "cp3");
+				id:"signupModule-signupPane",
+				style:"margin:0px; padding:0px;"
+			}, "signupPane");
         	
         	var signUpMsgPane = new ContentPane({
-				id:"signupmsg",	           
+				id:"signupModule-signupMsgPane",	           
 	            style:"width:700px; margin:0px; padding:0px 0px 10px 0px",
-	            content:"<h1>Sign Up</h1><p>It's free and always will be.</p>"
+	            content:"<h1>IDM Sign Up</h1><p>This will keep your Dashboard and Portal account in sync</p>"
 			});
         	
-        	var fieldsPane = new ContentPane({
-				id:"fieldspane",	           
+        	var signUpFieldsPane = new ContentPane({
+				id:"signupModule-fieldsPane",	           
 	            style:"width:700px; margin:0px; padding:0px"
 			});
         	      	
     		// First Name
     		var firstname = new ValidationTextBox({
-    			id:"firstname",
-    			name:"firstname",
+    			id:"signupModule-firstname",
+    			name:"signupModule-firstname",
     			type:"text", 
     			required:true,
     			maxLength:"50",
@@ -39,8 +55,8 @@ define(["dojo/dom", "dojo/dom-construct", "dijit/layout/ContentPane", "dijit/for
     		
     		// Last Name
     		var lastname = new ValidationTextBox({
-    			id:"lastname",
-    			name:"lastname",
+    			id:"signupModule-lastname",
+    			name:"signupModule-lastname",
     			type:"text", 
     			required:true,
     			maxLength:"50",
@@ -55,8 +71,8 @@ define(["dojo/dom", "dojo/dom-construct", "dijit/layout/ContentPane", "dijit/for
     		
     		// Email
 			var signupemail = new ValidationTextBox({
-				id:"signup-email",
-				name:"signup-email",
+				id:"signupModule-signUpEmail",
+				name:"signupModule-signUpEmail",
 				type:"text", 
 				required:true,
 				maxLength:"50",
@@ -68,23 +84,32 @@ define(["dojo/dom", "dojo/dom-construct", "dijit/layout/ContentPane", "dijit/for
 	        	style:"width:362px; margin:0px; padding:0px",
 	        	invalidMessage:"Incorrect email format",
 	        	tooltipPosition:['below']});
-		    
-    		
+			
+			// Sign Up Button
+	        var signupButton = new Button({
+	        	id:"signupModule-SignUpButton",
+	            label:"Sign Up",
+	            type:"submit"
+	        });
+	        					
     		// Add the widgets to the fields pane	
-    		fieldsPane.addChild(firstname);
-    		fieldsPane.addChild(lastname);
-    		fieldsPane.addChild(signupemail);
-    		
+			signUpFieldsPane.addChild(firstname);
+			signUpFieldsPane.addChild(lastname);
+			signUpFieldsPane.addChild(signupemail);
+			signUpFieldsPane.addChild(signupButton);
+					
     		// Add the widgets to the main pane	
     		signupPane.addChild(signUpMsgPane);
-    		signupPane.addChild(fieldsPane);
-    						
-    		var signupEmailNode  = dom.byId("widget_lastname");
-    		var breakNode = domConstruct.toDom("<br><br>");
-			domConstruct.place(breakNode, signupEmailNode, "after");
-						
-        	return signupPane;
-        	
+    		signupPane.addChild(signUpFieldsPane);
+    		    		
+    		var lastNameNode = dom.byId("widget_signupModule-lastname");
+    		var lastNameBreakNode = domConstruct.toDom("<br><br>");
+			domConstruct.place(lastNameBreakNode, lastNameNode, "after");
+			
+			var emailNode  = dom.byId("widget_signupModule-signUpEmail");
+			var emailBreakNode = domConstruct.toDom("<br><br>");
+			domConstruct.place(emailBreakNode, emailNode, "after");
+					       	
         }
     };
 });
