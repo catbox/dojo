@@ -111,46 +111,43 @@
 			}, "mainContainer");
 					
 			var cp1 = new ContentPane({
-				id:"cp1",	           
-	            splitter:false, 
+				id:"cp1",          
+	            splitter:false,
 	            region:"top",
-	            style:"width:100%; height:100px; padding:0px; margin:0px; overflow:hidden;"          
+	            style:"width:100%; height:100px; padding:0px; margin:0px; overflow:hidden;"   
 			},"pane1");
 			bc.addChild(cp1);
 			
 			var cp2 = new ContentPane({
-				id:"cp2",	           
-	            splitter:false, 
+				id:"cp2",   
+	            splitter:false,
 	            region:"left",
-	            style:"width:10%; overflow:hidden;",	         
-	           	content:"Left Pane"
+	            style:"width:10%; overflow:hidden;"   
 			},"pane2");
 			bc.addChild(cp2);
 				
 			var cp3 = new ContentPane({
-	        	id:"cp3",	           
-	            splitter:false, 
+	        	id:"cp3",          
+	            splitter:false,
 	            region:"center",
-	            style:"width:80%; overflow:hidden;",
-	            //content:"Center Pane"
+	            style:"width:80%; overflow:hidden;"
 	        },"pane3");
 			bc.addChild(cp3);
 			
 		 	var cp4 = new ContentPane({
-	        	id:"cp4",	            
-	            splitter:false, 
-	            region:"right", 
-	            style:"width:10%; overflow:hidden;",
-	            content:"Right Pane"
+	        	id:"cp4",            
+	            splitter:false,
+	            region:"right",
+	            style:"width:10%; overflow:hidden;"
 	        },"pane4");
 		 	bc.addChild(cp4);
 		
 		 	var cp5 = new ContentPane({
-	        	id:"cp5",	            
-	            splitter:false, 
-	            region:"bottom", 
-	            style:"width:10%; height:5%; overflow:hidden;",
-	            content:"Bottom Pane"
+	        	id:"cp5",        
+	            splitter:false,
+	            region:"bottom",
+	            style:"width:10%; height:40px; overflow:hidden;",
+	            content:"Performance Monitoring Dashboard"
 	        },"pane5");
 		 	bc.addChild(cp5);
 		 	
@@ -161,7 +158,7 @@
 			var topNode = dom.byId("cp1");
 			  
 			if(topNode!=null) {				  			
-		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px; max-width:500px;'><h1 id='logoPane' style='margin-left:10px;'>Phantom</h1></td><td style='width:50%; min-width:400px; max-width:500px;'><form id='loginForm'><div id='loginPane'></div></form></td></tr></table>");	    	
+		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px; max-width:500px;'><h1 id='logoPane' style='margin-left:10px;'>IDM</h1></td><td style='width:50%; min-width:400px; max-width:500px;'><form id='loginForm'><div id='loginPane'></div></form></td></tr></table>");	    	
 		    	domConstruct.place(formNode, topNode);
 				loginpane.getLoginPane();
 			}	
@@ -170,7 +167,7 @@
 			var centerPane = dom.byId("cp3");
 			  
 			if(centerPane!=null) {				  			
-		    	var centerPaneNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px; max-width:500px;'><h1>Hello World</h1><h1>Hello World</h1><h1>Hello World</h1></td><td style='width:50%; min-width:400px; max-width:500px;'><form id='signupForm'><div id='signupPane'></div></form></td></tr></table>");	    	
+		    	var centerPaneNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px; max-width:500px; padding:0px; margin:0px;'><h1>GM OnStar</h1><h1>GM Owner Center</h1><h1>Blue Cross Blue Shield</h1></td><td style='width:50%; min-width:400px; max-width:500px;'><form id='signupForm'><div id='signupPane'></div></form></td></tr></table>");	    	
 		    	domConstruct.place(centerPaneNode, centerPane);
 		    	signup.getSignupPane();
 			}	
