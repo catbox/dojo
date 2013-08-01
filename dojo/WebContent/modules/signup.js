@@ -28,7 +28,7 @@ define(["dijit/form/Form", "dojo/dom", "dojo/dom-construct", "dijit/layout/Conte
         	
         	var signUpMsgPane = new ContentPane({
 				id:"signupModule-signupMsgPane",	           
-	            style:"width:700px; margin:0px; padding:0px 0px 10px 0px",
+	            style:"width:700px; margin:0px 0px 0px 5px;; padding:0px 0px 10px 0px",
 	            content:"<h1>IDM Sign Up</h1><p>This will keep your Dashboard and Portal account in sync</p>"
 			});
         	
@@ -50,7 +50,7 @@ define(["dijit/form/Form", "dojo/dom", "dojo/dom-construct", "dijit/layout/Conte
             	placeHolder:"First Name",
             	promptMessage:"First Name",
             	missingMessage:"First Name is required",
-            	style:"width:175px; margin-right:10px; padding:0px",
+            	style:"width:175px; margin:0px 10px 0px 5px; padding:0px",
             	tooltipPosition:['below']});    		
     		
     		// Last Name
@@ -81,7 +81,7 @@ define(["dijit/form/Form", "dojo/dom", "dojo/dom-construct", "dijit/layout/Conte
 	        	regExp:"[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}",
 	        	placeHolder:"Email",
 	        	missingMessage:"Email is required",
-	        	style:"width:362px; margin:0px; padding:0px",
+	        	style:"width:362px; margin:0px 0px 0px 5px; padding:0px",
 	        	invalidMessage:"Incorrect email format",
 	        	tooltipPosition:['below']});
 			
@@ -89,6 +89,7 @@ define(["dijit/form/Form", "dojo/dom", "dojo/dom-construct", "dijit/layout/Conte
 	        var signupButton = new Button({
 	        	id:"signupModule-SignUpButton",
 	            label:"Sign Up",
+	            style:"font-size:25px;",
 	            type:"submit"
 	        });
 	        					
