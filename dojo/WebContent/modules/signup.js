@@ -28,13 +28,13 @@ define(["dijit/form/Form", "dojo/dom", "dojo/dom-construct", "dijit/layout/Conte
         	
         	var signUpMsgPane = new ContentPane({
 				id:"signupModule-signupMsgPane",	           
-	            style:"width:700px; margin:0px 0px 0px 5px;; padding:0px 0px 10px 0px",
+	            style:"width:425px; margin:0px 0px 0px 5px;; padding:0px 0px 10px 0px",
 	            content:"<h1>IDM Sign Up</h1><p>This will keep your Dashboard and Portal account in sync</p>"
 			});
         	
         	var signUpFieldsPane = new ContentPane({
 				id:"signupModule-fieldsPane",	           
-	            style:"width:700px; margin:0px; padding:0px"
+	            style:"width:425px; margin:0px; padding:0px"
 			});
         	      	
     		// First Name
