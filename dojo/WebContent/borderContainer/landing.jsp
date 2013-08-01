@@ -77,21 +77,7 @@
 </style>
 </head>
 <body class="claro">
- 	<!--  
-	<div id="mainContainer">	
-    	<div id="pane1"></div>   	    	
-    	<div id="pane2"></div>
-    	<div id="cp3"> 		
-    		<div id="firstname"></div>
-    		<div id="lastname"></div>
-			<div id="signup-email"></div>
-			<div id="signup-email-match"></div>
-			<div id="signup-password"></div>	
-    	</div> 	
-    	<div id="pane4"></div>
-    	<div id="pane5"></div>
-	</div>
-	-->
+ 	
 	<div id="mainContainer">	
     	<div id="pane1"></div>   	    	
     	<div id="pane2"></div>
@@ -170,14 +156,12 @@
 		 	
 		 	// Show the border layout
 		 	bc.startup();
-				 	
-		 	//signup.getSignupPane();
 			
 		 	// Create the top pane dom
 			var topNode = dom.byId("cp1");
 			  
 			if(topNode!=null) {				  			
-		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:750px;'><h1 id='logoPane' style='margin-left:10px;'>Phantom</h1></td><td style='width:50%;'><form id='loginForm'><div id='loginPane'></div></form></td></tr></table>");	    	
+		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px; max-width:500px;'><h1 id='logoPane' style='margin-left:10px;'>Phantom</h1></td><td style='width:50%; min-width:400px; max-width:500px;'><form id='loginForm'><div id='loginPane'></div></form></td></tr></table>");	    	
 		    	domConstruct.place(formNode, topNode);
 				loginpane.getLoginPane();
 			}	
@@ -186,7 +170,7 @@
 			var centerPane = dom.byId("cp3");
 			  
 			if(centerPane!=null) {				  			
-		    	var centerPaneNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px;'><h1>Hello World</h1><h1>Hello World</h1><h1>Hello World</h1></td><td style='width:50%; min-width:400px;'><form id='signupForm'><div id='signupPane'></div></form></td></tr></table>");	    	
+		    	var centerPaneNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px; max-width:500px;'><h1>Hello World</h1><h1>Hello World</h1><h1>Hello World</h1></td><td style='width:50%; min-width:400px; max-width:500px;'><form id='signupForm'><div id='signupPane'></div></form></td></tr></table>");	    	
 		    	domConstruct.place(centerPaneNode, centerPane);
 		    	signup.getSignupPane();
 			}	
