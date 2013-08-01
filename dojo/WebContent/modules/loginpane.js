@@ -59,7 +59,6 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
 	        	lowercase:true,
 	        	//regExp:"[a-z0-9._%+-]",
 	        	placeHolder:"Password",
-	        	promptMessage:"Password",
 	        	missingMessage:"Password is required",
 	        	invalidMessage:"Incorrect password format",
 	        	style:"width:175px; margin-right:5px; padding:0px",
