@@ -30,9 +30,6 @@
 		<b>Server Message: </b><span id="svrMessage"></span>
 	</div>
 	<script>
-		var lang = <%=request.getParameter("username")%>;
-		
-		alert("Lang: " + lang);
 	    dojoConfig = {
 	    	async: true,
 	        parseOnLoad: false,
