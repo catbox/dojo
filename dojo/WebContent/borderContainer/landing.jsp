@@ -77,7 +77,7 @@
 </style>
 </head>
 <body class="claro">
- 	
+ 	<noscript><h1>You need to have JavaScript enabled for an optimum experience!</h1></noscript>
 	<div id="mainContainer">	
     	<div id="pane1"></div>   	    	
     	<div id="pane2"></div>
