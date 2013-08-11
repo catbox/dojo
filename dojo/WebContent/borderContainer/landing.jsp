@@ -78,6 +78,12 @@
 </head>
 <body class="claro">
  	<noscript><h1>You need to have JavaScript enabled for an optimum experience!</h1></noscript>
+ 	<%
+		response.setHeader("Cache-Control","no-cache"); // Get a new copy of the page from server
+		response.setHeader("Cache-Control","no-store"); // Prevent page storing
+		response.setDateHeader("Expires", 0); 			// Tells the proxy cache to consider this page as stale
+		response.setHeader("Pragma","no-cache"); 		// HTTP 1.0 backwack compatibility
+	%>
 	<div id="mainContainer">	
     	<div id="pane1"></div>   	    	
     	<div id="pane2"></div>
@@ -99,7 +105,7 @@
 	<script src="/dojotoolkit/dojo-1.8.3/dojo/dojo.js"></script>
 	
 	<script>
-	   
+	  
 		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/dom", "dojo/dom-construct", "modules/logopane", "modules/loginpane", "modules/signup", "dojo/domReady!"], 
 				function(BorderContainer, ContentPane, dom, domConstruct, logopane, loginpane, signup) {
 			
