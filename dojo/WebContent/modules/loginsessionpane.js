@@ -9,7 +9,7 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
 			var loginForm = new Form({
 				id:"loginModule-loginForm",
 				method:"post", 
-				action:"home.jsp"}, "loginForm");
+				action:"uservalidator.jsp"}, "loginForm");
 			
 			loginForm.on("submit", function() {			
 				if(this.validate()) {
