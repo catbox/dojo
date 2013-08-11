@@ -24,27 +24,36 @@
 </head>
 <body class="claro">
 	<%
-		// Kill the session
-	    //session.invalidate();
+		
+		response.setHeader("Cache-Control","no-cache"); // Get a new copy of the page from server
+		response.setHeader("Cache-Control","no-store"); // Prevent page storing
+		response.setDateHeader("Expires", 0); 			// Tells the proxy cache to consider this page as stale
+		response.setHeader("Pragma","no-cache"); 		// HTTP 1.0 backwack compatibility
 	
-		String previousPage = "";
-		// Try to access the
+		session.removeAttribute("user");
+	
+		// Kill the session
+	    session.invalidate();
+		
+		// Kill the request
+		//request.logout();
+		
 		try {
-			previousPage = "http://localhost:8080" + (String)session.getAttribute("referrerPage");
-			
-			out.println("previousPage: " + previousPage);
+			if(session.isNew()) {
+				out.println("This is a new Session Id" + "<br>");	
+			}
 		}
 		catch(Exception exception) {
-			out.println("Exception: " + exception.getMessage());	
+			out.println("Error - Session has expired!" + "<br>");
 		}
-	
-		String closedSession = "true";
-		//String currentPage = (String)request.getRequestURI();
-		//out.println("Current Page: " + currentPage + "<br>");
 		
+		if(session != null) {
+			System.out.println("logout: " + session.toString());
+		}
+		else {
+			System.out.println("logout: session is null!");
+		}
 		
-
-
 	%>
 	<div id="main"></div>
 
@@ -77,26 +86,6 @@
 		
 		document.write("document.baseURI: " + document.baseURI + "<br>");
 		
-		var closedSession = "<%=closedSession%>";
-		
-		var prevPage = "<%=previousPage%>";
-		document.write("prevPage JS variable: " + prevPage + "<br>");
-		
-		document.write("document.referrer: " + document.referrer + "<br>");
-		
-		window.onbeforeunload = function() {
-			if(document.referrer == prevPage) {
-				alert("Back Button Pressed");
-				// Do Whatever here
-			}
-		};
-		/*
-		window.onsubmit = function() {
-			
-			alert("Submit button has been clicked!");
-
-		};
-		*/
 	</script>	
 </body>
 </html>

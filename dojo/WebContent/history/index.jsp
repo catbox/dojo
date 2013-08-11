@@ -23,7 +23,25 @@
 </style>
 </head>
 <body class="claro">
-
+	<noscript><h1>You need to have JavaScript enabled for an optimum experience!</h1></noscript>
+ 	<%
+		response.setHeader("Cache-Control","no-cache"); // Get a new copy of the page from server
+		response.setHeader("Cache-Control","no-store"); // Prevent page storing
+		response.setDateHeader("Expires", 0); 			// Tells the proxy cache to consider this page as stale
+		response.setHeader("Pragma","no-cache"); 		// HTTP 1.0 backwack compatibility
+		
+		// Force the creation of new session
+		session.invalidate();
+		session = request.getSession();
+		
+		try {
+			out.println("Session Id: " + session.getId() + "<br>");
+			out.println("User: " + session.getAttribute("user"));
+		}
+		catch(Exception exception) {
+			out.println("Error: " + exception.getMessage());
+		}
+	%>
 	<div id="main"></div>
 
 	<script>

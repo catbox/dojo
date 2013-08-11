@@ -5,24 +5,43 @@
 <title>Welcome</title>
 <link rel="stylesheet" href="/dojotoolkit/dojo-1.8.3/dijit/themes/claro/claro.css" media="screen">
 <link rel="stylesheet" href="/css/myCSS.css">
-<!--  
-<script type="text/javascript">
-    window.history.forward();
-    function noBack() { window.history.forward(); }
-</script>
--->
 </head>
-<!--  
-<body class="claro" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
--->
-<body class="claro" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-	<%	
-		String email = request.getParameter("email");	
-		out.println("email: " + email);
-		out.println("<br>");
 
-		String homePage = (String)request.getRequestURI();
-		session.setAttribute("referrerPage", homePage);
+<body class="claro">
+	<%@ page import="java.util.Date" %>
+	<%	
+		response.setHeader("Cache-Control","no-cache"); // Get a new copy of the page from server
+		response.setHeader("Cache-Control","no-store"); // Prevent page storing
+		response.setDateHeader("Expires", 0); 			// Tells the proxy cache to consider this page as stale
+		response.setHeader("Pragma","no-cache"); 		// HTTP 1.0 backwack compatibility
+		
+		String homeUser = null;
+		Date date = new java.util.Date();
+		// Should I kick you out?
+		try {		
+			homeUser = (String)session.getAttribute("user");
+			
+			if(homeUser == null) {
+				System.out.println(date + " - home redirecting to outyougo.jsp");
+				response.sendRedirect("outyougo.jsp");
+			}
+			else {
+				out.println("User: " + homeUser + "<br>");	
+			}
+		}
+		catch(Exception exception) {
+			System.out.println(date + " - home redirecting to outyougo.jsp" + " - " + exception.getMessage());
+			response.sendRedirect("outyougo.jsp");	
+		}
+		
+		// Session
+		if(session.isNew()) {
+			out.println("This is a new Session Id" + "<br>");	
+		}
+		else {			
+			out.println("Session Id: " + session.getId() + "<br>");
+		}
+		
 	%>
 	<br>
 	<div id="logout"></div>
