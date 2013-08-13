@@ -2,10 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Home</title>
+<title>Profile</title>
 <link rel="stylesheet" href="/dojotoolkit/dojo-1.8.3/dijit/themes/claro/claro.css" media="screen">
 <link rel="stylesheet" href="/css/myCSS.css">
 </head>
+
 <body class="claro">
 	<%	
 		response.setHeader("Cache-Control","no-cache"); // Get a new copy of the page from server
@@ -14,7 +15,7 @@
 		response.setHeader("Pragma","no-cache"); 		// HTTP 1.0 backwack compatibility
 		
 		String homeUser = null;
-	
+		
 		// Should I kick you out?
 		try {		
 			homeUser = (String)session.getAttribute("user");
@@ -24,18 +25,17 @@
 			}
 			else {
 				out.println("Session Id: " + session.getId() + "<br>");
-				out.println("User: " + homeUser + "<br>");		
+				out.println("User: " + homeUser + "<br>");
 			}
 		}
 		catch(Exception exception) {
 			response.sendRedirect("outyougo.jsp");	
-		}
-			
+		}		
 	%>
-	<p>This is your home page</p>
-	<div id="home-viewprofile-placeholder"></div>
-	<div id="home-logout-placeholder"></div>
-		
+	<p>This is your profile page</p>
+	<div id="profile-backtohome-placeholder"></div>
+	<div id="profile-logout-placeholder"></div>
+			
 	<script>
 	    dojoConfig = {
 	    	async: true,
@@ -47,30 +47,30 @@
 	<script>
 		require(["dijit/form/Button", "dojo/domReady!"], function(Button) {
 			
-			// home namespace
-			var homeSpace = {};
+			var profileSpace = {};			
 			
-			// View profile
-	        homeSpace.profileViewBtn = new Button({
-	        	id:"home-view-profile-btn",
-	            label:"View Profile",
+			// Logout
+	        profileSpace.profileBtn = new Button({
+	        	id:"profile-backtohome-btn",
+	            label:"Home",
 	            type:"button",
 	            onClick: function() {
-	            	window.location.assign("profile.jsp");
+	            	window.location.assign("home.jsp");
 	            }
-	        }, "home-viewprofile-placeholder");
-	        homeSpace.profileViewBtn.startup(); 
+	        }, "profile-backtohome-placeholder");
+	        profileSpace.profileBtn.startup();
 	        
 			// Logout
-	        homeSpace.logoutBtn = new Button({
-	        	id:"home-logout-btn",
+	        profileSpace.profileBtn = new Button({
+	        	id:"profile-logout-btn",
 	            label:"Logout",
 	            type:"button",
 	            onClick: function() {
 	            	window.location.assign("logout.jsp");
 	            }
-	        }, "home-logout-placeholder");
-	        homeSpace.logoutBtn.startup();  			
+	        }, "profile-logout-placeholder");
+	        profileSpace.profileBtn.startup();
+	        		 			
 		});
 		
 	</script>

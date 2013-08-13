@@ -30,13 +30,18 @@
 		response.setDateHeader("Expires", 0); 			// Tells the proxy cache to consider this page as stale
 		response.setHeader("Pragma","no-cache"); 		// HTTP 1.0 backwack compatibility
 		
-		// Force the creation of new session
-		session.invalidate();
-		session = request.getSession();
+		String defaultUser = null;
 		
 		try {
+			defaultUser = (String)session.getAttribute("user");
+			
 			out.println("Session Id: " + session.getId() + "<br>");
 			out.println("User: " + session.getAttribute("user"));
+			
+			// You are already signed in - get out of here
+			if(defaultUser != null) {
+				response.sendRedirect("outyougo.jsp");	
+			}
 		}
 		catch(Exception exception) {
 			out.println("Error: " + exception.getMessage());

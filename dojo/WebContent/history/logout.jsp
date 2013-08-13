@@ -23,36 +23,16 @@
 </style>
 </head>
 <body class="claro">
-	<%
-		
+	<%		
 		response.setHeader("Cache-Control","no-cache"); // Get a new copy of the page from server
 		response.setHeader("Cache-Control","no-store"); // Prevent page storing
 		response.setDateHeader("Expires", 0); 			// Tells the proxy cache to consider this page as stale
 		response.setHeader("Pragma","no-cache"); 		// HTTP 1.0 backwack compatibility
 	
+		// Remove the user from the session
 		session.removeAttribute("user");
-	
 		// Kill the session
 	    session.invalidate();
-		
-		// Kill the request
-		//request.logout();
-		
-		try {
-			if(session.isNew()) {
-				out.println("This is a new Session Id" + "<br>");	
-			}
-		}
-		catch(Exception exception) {
-			out.println("Error - Session has expired!" + "<br>");
-		}
-		
-		if(session != null) {
-			System.out.println("logout: " + session.toString());
-		}
-		else {
-			System.out.println("logout: session is null!");
-		}
 		
 	%>
 	<div id="main"></div>
@@ -82,10 +62,7 @@
 		    	loginsessionpane.getLoginPane();
 			}
 			
-		});
-		
-		document.write("document.baseURI: " + document.baseURI + "<br>");
-		
+		});		
 	</script>	
 </body>
 </html>
