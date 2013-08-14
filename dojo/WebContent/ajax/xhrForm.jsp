@@ -53,7 +53,8 @@
 					// Post the data to the server
 					request.post("authenticator.jsp", {
 						// Send the username and password
-						data: domForm.toObject("formNode"),
+						//data: domForm.toObject("formNode"),
+						data: domForm.toObject(form),
 						/*
 						data: {
 				            username: "blue",
