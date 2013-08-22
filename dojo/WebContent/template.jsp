@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>index</title>
-<link rel="stylesheet" href="/dojotoolkit/dojo-1.8.3/dijit/themes/claro/claro.css" media="screen">
+<link rel="stylesheet" href="/dojotoolkit/dojo-1.8.3/dijit/themes/claro/claro.css">
 <link rel="stylesheet" href="/css/myCSS.css">
 </head>
 <body class="claro">
