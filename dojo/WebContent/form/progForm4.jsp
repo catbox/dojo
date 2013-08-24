@@ -106,7 +106,9 @@ html, body {
 			trim:true,
 			placeHolder:"Name", 
 			promptMessage:"Name", 
-			missingMessage:"Name is required!"}, "fullname");
+			missingMessage:"Name is required!",
+			tooltipPosition:['below']
+			}, "fullname");
 		fullName.startup();
 		
 		// Email
@@ -122,7 +124,9 @@ html, body {
         	placeHolder:"Email",
         	promptMessage:"Email",
         	missingMessage:"Email is required!",
-        	invalidMessage:"Incorrect email format!"}, "email");
+        	invalidMessage:"Incorrect email format!",
+        	tooltipPosition:['below']
+        	}, "email");
 	    email.startup();
 	    
         // Submit Button
