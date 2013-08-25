@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Dojo Image Cropper - jsFiddle demo</title>
+  <title>Cropper</title>
   
   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo/dojo.js.uncompressed.js' djConfig="parseOnLoad: true"></script>
   <link rel="stylesheet" type="text/css" href="/css/normalize.css">
@@ -120,7 +120,7 @@ function updateResult(info) {
 }
 dojo.ready(function () {
     defineDijit(); //Demo purpose: to define dijit
-    var ic = new dojoy.ImageCropper({
+    var ic = new pkw.ImageCropper({
         keepSquare: true,
         cropSize: 80
     });
@@ -133,7 +133,7 @@ dojo.ready(function () {
 
 function defineDijit() {
 
-    dojo.declare('dojoy.ImageCropper', dijit._Widget, {
+    dojo.declare('pkw.ImageCropper', dijit._Widget, {
         minWidth: 20,
         minHeight: 20,
         //gap between crop region border and container border
