@@ -8,6 +8,7 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
     		// The form
 			var loginForm = new Form({
 				id:"loginModule-loginForm",
+				style:"width:440px; min-width:440px; max-width:440px; margin:0px; padding:0px; float:right;",
 				method:"post", 
 				action:"../form/formResult.jsp"}, "loginForm");
 			
@@ -22,13 +23,14 @@ define(["dijit/form/Form", "dijit/layout/ContentPane", "dijit/form/ValidationTex
   		
     		// Login Pane
     		var loginPane = new ContentPane({
-				id:"loginModule-loginPane"
+				id:"loginModule-loginPane",
+				style:"width:435px; min-width:435px; max-width:435px; margin:0px; padding:0px; float:right;",
 			},"loginPane");
     		
-    		// Login Field
+    		// Login Fields
     		var loginFields = new ContentPane({
 				id:"loginModule-loginFields",	           
-	            style:"width:430px; max-width:430px; margin:0px; padding:5px; border-style:solid; border-width:1px; border-color:#AAAAAA; float:right;"
+	            style:"width:430px; min-width:430px; max-width:430px; margin:0px; padding:0px; float:right;"
 			});
     		
 			// Email Field

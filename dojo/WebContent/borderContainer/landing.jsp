@@ -164,7 +164,7 @@
 			var topNode = dom.byId("cp1");
 			  
 			if(topNode!=null) {				  			
-		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px; max-width:500px;'><h1 id='logoPane' style='margin-left:10px;'>IDM</h1></td><td style='width:50%; min-width:400px; max-width:500px;'><form id='loginForm'><div id='loginPane'></div></form></td></tr></table>");	    	
+		    	var formNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px;'><h1 id='logoPane' style='margin-left:10px;'>IDM</h1></td><td style='width:50%;'><form id='loginForm'><div id='loginPane'></div></form></td></tr></table>");	    	
 		    	domConstruct.place(formNode, topNode);
 				loginpane.getLoginPane();
 			}	
@@ -173,7 +173,7 @@
 			var centerPane = dom.byId("cp3");
 			  
 			if(centerPane!=null) {				  			
-		    	var centerPaneNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px; max-width:500px; padding:0px; margin:0px;'><h1>GM OnStar</h1><h1>GM Owner Center</h1><h1>Blue Cross Blue Shield</h1></td><td style='width:50%; min-width:400px; max-width:500px;'><form id='signupForm'><div id='signupPane'></div></form></td></tr></table>");	    	
+		    	var centerPaneNode = domConstruct.toDom("<table><tr><td style='width:50%; min-width:400px; padding:0px; margin:0px;'><h1>GM OnStar</h1><h1>GM Owner Center</h1><h1>Blue Cross Blue Shield</h1></td><td style='width:50%;'><form id='signupForm'><div id='signupPane'></div></form></td></tr></table>");	    	
 		    	domConstruct.place(centerPaneNode, centerPane);
 		    	signup.getSignupPane();
 			}	

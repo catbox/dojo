@@ -8,6 +8,7 @@ define(["dijit/form/Form", "dojo/dom", "dojo/dom-construct", "dijit/layout/Conte
     		// The form
 			var signupForm = new Form({
 				id:"signupModule-signupForm",
+				style:"width:440px; min-width:440px; max-width:440px; margin:0px; padding:0px;",
 				method:"post", 
 				action:"../form/formResult.jsp"}, "signupForm");
 			
@@ -33,18 +34,19 @@ define(["dijit/form/Form", "dojo/dom", "dojo/dom-construct", "dijit/layout/Conte
 			// Sign up Pane
         	var signupPane = new ContentPane({
 				id:"signupModule-signupPane",
-				style:"margin:0px; padding:0px;"
+				style:"width:435px; min-width:435px; max-width:435px; margin:0px; padding:0px;"
 			}, "signupPane");
         	
         	var signUpMsgPane = new ContentPane({
 				id:"signupModule-signupMsgPane",	           
-	            style:"width:425px; margin:0px 0px 0px 5px;; padding:0px 0px 0px 0px",
-	            content:"<h1>Sign Up</h1><p>This will keep your Dashboard and Portal account in sync</p>"
+	            style:"width:430px; min-width:430px; max-width:430px; margin:0px 0px 10px 0px; padding:0px;",
+	            content:"<h1 style =\"margin:0px 0px 15px 5px;\">Sign Up</h1><p style =\"margin:0px 0px 5px 5px;\">This will keep your Dashboard and Portal account in sync</p>"
 			});
         	
+        	// Sign Up Fields
         	var signUpFieldsPane = new ContentPane({
 				id:"signupModule-fieldsPane",	           
-	            style:"width:425px; margin:0px; padding:0px"
+	            style:"width:430px; min-width:430px; max-width:430px; margin:0px; padding:0px;"
 			});
         	      	
     		// First Name
