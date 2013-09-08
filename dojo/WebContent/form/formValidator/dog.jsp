@@ -5,7 +5,7 @@ String password = request.getParameter("password").trim();
 if(email.equals("ged@go.com") && password.equals("123")) {
 	// Set the user
 	session.setAttribute("user", email);
-	response.sendRedirect("welcome.jsp");
+	out.println("OK");
 }
 if(!email.equals("ged@go.com")) {
 	session.setAttribute("login-error", "err-401");

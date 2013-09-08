@@ -94,7 +94,13 @@ define(["dojo/dom", "dijit/form/Form", "dojo/request", "dojo/dom-form", "dijit/l
 						// Time out after 5 seconds
 						timeout: 5000
 					}).then(function(response){
-						dom.byId('errormsg').innerHTML = response;
+						
+						if(response = "OK") {
+							window.location.assign("../form/formValidator/welcome.jsp");
+						}
+						else {
+							dom.byId('errormsg').innerHTML = response;
+						}
 					});
 					
 					
