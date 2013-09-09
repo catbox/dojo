@@ -64,8 +64,6 @@ define(["dojo/dom", "dijit/form/Form", "dojo/request", "dojo/dom-form", "dijit/l
 	        // The form
 			var loginForm = new Form({
 				id:"loginModule-loginForm",
-				//method:"post",
-				//action:"../form/formValidator/authenticator.jsp"
 				method:"post",
 				action:""
 				}, "loginForm");
@@ -73,18 +71,17 @@ define(["dojo/dom", "dijit/form/Form", "dojo/request", "dojo/dom-form", "dijit/l
 			loginForm.on("submit", function(evt) {			
 				if(loginForm.validate()) {
 
-					var eml = domForm.fieldToObject(dom.byId("loginModule-loginForm").email);
-					var pwd = domForm.fieldToObject(dom.byId("loginModule-loginForm").password);
-					var lang = "ES";
-					
-					
-					// prevent the page from navigating after submit
 					evt.stopPropagation();
 					evt.preventDefault();
 					
+					var eml = domForm.fieldToObject(dom.byId("loginModule-loginForm").email);
+					var pwd = domForm.fieldToObject(dom.byId("loginModule-loginForm").password);
+					var lang = "ES";					
+					var validatorResponse = "ERR";
+					
 					// Post the data to the server
 					request.post("../form/formValidator/dog.jsp", {
-						// Send the username, password and language
+						// Send the user name, password and language
 						data: {
 				            email:eml,
 				            password:pwd,
@@ -93,20 +90,32 @@ define(["dojo/dom", "dijit/form/Form", "dojo/request", "dojo/dom-form", "dijit/l
 				        
 						// Time out after 5 seconds
 						timeout: 5000
-					}).then(function(response){
+					}).then(function(response) {
 						
-						if(response = "OK") {
-							window.location.assign("../form/formValidator/welcome.jsp");
+						validatorResponse = response;
+												
+						if(validatorResponse == "OK") {
+							// Redirect the page
+							window.location.assign("../form/formValidator/welcome.jsp");						
 						}
-						else {
-							dom.byId('errormsg').innerHTML = response;
-						}
+						else {	
+							// Update the error message of the login action
+							dom.byId('errormsg').innerHTML = "Error: " + validatorResponse;	
+						}					
 					});
 					
+					/*
+					if(validatorResponse != "OK") {
+
+						evt.stopPropagation();
+						evt.preventDefault();
+					}
+					*/
 					
 					return true;
 				}
 				else {
+					
 					return false;
 				}			
 			});
