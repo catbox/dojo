@@ -47,6 +47,16 @@
 		        	var nodeId = evt.target.id;
 			     	alert("Node Id: " + nodeId);
 		        });
+		        
+		        on(win.doc, ".myClass:mouseover", function(evt){		            
+		        	var nodeId2 = evt.target.id;
+		        	domStyle.set(nodeId2, "color", "blue");
+		        });
+		        
+		        on(win.doc, ".myClass:mouseout", function(evt){		            
+		        	var nodeId2 = evt.target.id;
+		        	domStyle.set(nodeId2, "color", "#4D4D4D");
+		        });
 		});
 	</script>
 	
