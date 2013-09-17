@@ -18,7 +18,7 @@
 	        locale: 'en'	        
 	    };
 	</script>
-	<script src="/dojotoolkit/dojo-1.9.0/dojo/dojo.js"></script>		
+	<script src="/dojotoolkit/dojo-1.9.0/dojo/dojo.js" charset="utf-8" type="text/javascript"></script>		
 	<script>	
 		require(["dojox/mobile/parser", "dojox/mobile/deviceTheme", "dojox/mobile", "dojox/mobile/compat", "dojo/domReady!"], function(parser) {
 			parser.parse();
