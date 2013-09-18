@@ -47,10 +47,11 @@ define(["dojo/on", "dojo/dom", "dojo/mouse", "dijit/form/Form", "dojo/request", 
 	        	lowercase:true,
 	        	//regExp:"[a-z0-9._%+-]",
 	        	placeHolder:"Password",
-	        	missingMessage:"Password is required",
-	        	invalidMessage:"Incorrect password format",
+	        	missingMessage:"",
+	        	invalidMessage:"",
 	        	style:"width:175px; margin-right:5px; padding:0px",
-	        	tooltipPosition:['below']});
+	        	//tooltipPosition:['below']
+			});
 			loginFields.addChild(password);
 		    
 	        // Submit Button
@@ -117,7 +118,7 @@ define(["dojo/on", "dojo/dom", "dojo/mouse", "dijit/form/Form", "dojo/request", 
 				}			
 			});
 			
-			// Tooltip Dialog
+			// Tool tip Dialog
 			var myTooltipDialog = new TooltipDialog({
 	            id:'myTooltipDialog'
 		    });
@@ -155,9 +156,43 @@ define(["dojo/on", "dojo/dom", "dojo/mouse", "dijit/form/Form", "dojo/request", 
 	        on(thenode, mouse.leave, function(evt) {
 	        	popup.close(myTooltipDialog);
 	        });
+	                
+	        // The password node
+	        var pwdnode = dom.byId("loginModule-passwordField");
+	        
+	        // Mouse in - open the tool tip dialog
+	        on(pwdnode, mouse.enter, function(evt) {
+	        	
+	        	var pwdState = password.get("state");
+	        	  		
+	        	if(pwdState == "Error") {	
+	        		
+	        		var pwdValue = password.get("value");
+	        		
+	        		if(isBlank(pwdValue)) {	        			
+	        			myTooltipDialog.setContent("Password is required");
+			        	popup.open({
+			                popup: myTooltipDialog,
+			                around: pwdnode
+			            });	        			
+	        		}
+	        		else {		
+	        			myTooltipDialog.setContent("Incorrect password format");
+			        	popup.open({
+			                popup: myTooltipDialog,
+			                around: pwdnode
+			            });		        			        			
+	        		}	        		
+	        	}
+	        });
+	        
+	        // Mouse out - close the tool tip dialog
+	        on(pwdnode, mouse.leave, function(evt) {
+	        	popup.close(myTooltipDialog);
+	        });
 	        
 	        // Check if a string is null, empty or is only white spaces
-	        function isBlank(pString){
+	        function isBlank(pString) {
 	            if (!pString || pString.length == 0) {
 	                return true;
 	            }
