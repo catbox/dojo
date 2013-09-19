@@ -32,7 +32,6 @@ define(["dojo/on", "dojo/dom", "dojo/mouse", "dijit/form/Form", "dojo/request", 
 	        	missingMessage:"",
 	        	invalidMessage:"",
 	        	style:"width:175px; margin-right:5px; padding:0px"
-	        	//tooltipPosition:['below']
 			});
 			loginFields.addChild(email);
 					    
@@ -49,8 +48,7 @@ define(["dojo/on", "dojo/dom", "dojo/mouse", "dijit/form/Form", "dojo/request", 
 	        	placeHolder:"Password",
 	        	missingMessage:"",
 	        	invalidMessage:"",
-	        	style:"width:175px; margin-right:5px; padding:0px",
-	        	//tooltipPosition:['below']
+	        	style:"width:175px; margin-right:5px; padding:0px"
 			});
 			loginFields.addChild(password);
 		    
@@ -124,7 +122,7 @@ define(["dojo/on", "dojo/dom", "dojo/mouse", "dijit/form/Form", "dojo/request", 
 		    });
 	
 			// The email node
-	        var thenode = dom.byId("loginModule-emailField");
+	        var thenode = dom.byId("widget_loginModule-emailField");
 	        
 	        // Mouse in - open the tool tip dialog
 	        on(thenode, mouse.enter, function(evt) {
@@ -158,7 +156,7 @@ define(["dojo/on", "dojo/dom", "dojo/mouse", "dijit/form/Form", "dojo/request", 
 	        });
 	                
 	        // The password node
-	        var pwdnode = dom.byId("loginModule-passwordField");
+	        var pwdnode = dom.byId("widget_loginModule-passwordField");
 	        
 	        // Mouse in - open the tool tip dialog
 	        on(pwdnode, mouse.enter, function(evt) {
