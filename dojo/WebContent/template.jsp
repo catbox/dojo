@@ -16,7 +16,7 @@
 	</script>
 	<script src="/dojotoolkit/dojo-1.8.3/dojo/dojo.js" charset="utf-8" type="text/javascript"></script>		
 	<script>	
-		require(["dojo/dom", "dojo/domReady!"], function(dom){
+		require(["dojo/dom", "dojo/domReady!"], function(dom) {
 			// Anthing that is in this scope will not get executed until the whole DOM structure becomes available.		
 		});
 	</script>	
